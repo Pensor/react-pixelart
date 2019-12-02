@@ -46,3 +46,8 @@
 	list-style: none;
 	padding: 0;
 }
+
+.list > ul > li:hover {
+	background-color: #444;
+	cursor: pointer;
+}

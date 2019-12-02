@@ -3,8 +3,12 @@ import React, { useState } from 'react';
 const DrawingsList = props => {
 	const [name, setName] = useState('');
 	const saveDrawing = () => {
-		props.saveList(name);
+		props.saveDrawing(name);
 		setName('');
+	};
+
+	const loadDrawing = event => {
+		props.loadDrawing(event.target.innerHTML);
 	};
 
 	return (
@@ -12,7 +16,9 @@ const DrawingsList = props => {
 			<h5>Drawings</h5>
 			<ul>
 				{props.list.map(name => (
-					<li>{name}</li>
+					<li key={name} onClick={loadDrawing}>
+						{name}
+					</li>
 				))}
 			</ul>
 			<input
