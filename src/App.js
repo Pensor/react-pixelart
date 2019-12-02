@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Canvas from './components/Canvas';
+import ColorPicker from './components/ColorPicker';
+import DrawingsList from './components/DrawingsList';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [color, setColor] = useState(0);
+	const [list, setList] = useState(['first', 'second', 'third']);
+
+	const saveList = drawingName => {
+		setList(list.concat(drawingName));
+	};
+	return (
+		<div className="App">
+			<ColorPicker currentColor={color} setColor={color => setColor(color)} />
+			<Canvas currentColor={color} />
+			<DrawingsList list={list} saveList={saveList} />
+		</div>
+	);
 }
 
 export default App;
