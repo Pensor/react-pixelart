@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const DrawingsList = props => {
 	const [name, setName] = useState('');
+
 	const saveDrawing = () => {
 		props.saveDrawing(name);
 		setName('');

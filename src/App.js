@@ -27,7 +27,7 @@ function App() {
 	};
 
 	const saveDrawing = drawingName => {
-		setList(list.concat(drawingName));
+		setList([...(list || []), drawingName]);
 		window.localStorage.setItem(drawingName, JSON.stringify(matrix));
 		setMatrix(emptyMatrix);
 	};

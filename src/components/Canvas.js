@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Pixel from './Pixel';
 import Colors from '../Colors';
 
